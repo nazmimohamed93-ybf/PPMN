@@ -32,15 +32,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .corporate-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #2563eb;
+        .stat-card:hover .stat-bar {
+            height: 100%;
+        }
+
+        .chart-transition {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-placeholder {
+            background-color: #f1f5f9;
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
-<body class="bg-slate-100 selection:bg-blue-100 selection:text-blue-900">
+<body class="bg-slate-50 selection:bg-blue-100 selection:text-blue-900">
 
     <div id="presentation-container" class="fixed inset-0 flex flex-col bg-white overflow-hidden shadow-2xl">
         
@@ -55,6 +62,7 @@
             <!-- Page 1: Cover -->
             <section class="page active flex-col items-center justify-center h-full text-center p-10 md:p-20 relative bg-white">
                 <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1600" alt="Students" class="absolute inset-0 w-full h-full object-cover opacity-5 mix-blend-overlay">
                     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-50 rounded-full -mr-64 -mt-64"></div>
                     <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-50 rounded-full -ml-32 -mb-32 opacity-50"></div>
                 </div>
@@ -95,39 +103,42 @@
                             PPMN is a national talent development engine bridging the gap between academic theory and economic execution.
                         </p>
                     </div>
-                    <div class="bg-slate-50 p-12 rounded-sm border border-slate-100 flex flex-col gap-8">
-                        <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600 opacity-40">01</span><span class="text-lg font-light tracking-tight">Building Capability</span></div>
-                        <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600 opacity-40">02</span><span class="text-lg font-light tracking-tight">Mindset Shift</span></div>
-                        <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600 opacity-40">03</span><span class="text-lg font-light tracking-tight">STEM Pipeline</span></div>
-                        <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600 opacity-40">04</span><span class="text-lg font-light tracking-tight">Job Creation</span></div>
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-blue-600 -rotate-2 scale-105 opacity-5"></div>
+                        <div class="bg-white p-12 rounded-sm border border-slate-100 flex flex-col gap-8 relative z-10 shadow-sm">
+                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">01</span><span class="text-lg font-light tracking-tight">Building Capability</span></div>
+                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">02</span><span class="text-lg font-light tracking-tight">Mindset Shift</span></div>
+                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">03</span><span class="text-lg font-light tracking-tight">STEM Pipeline</span></div>
+                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">04</span><span class="text-lg font-light tracking-tight">Job Creation</span></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Page 3: Agenda -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
+            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto overflow-y-auto no-scrollbar">
                 <header class="mb-12 border-l-2 border-blue-600 pl-6">
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Table of Contents</h2>
                     <h1 class="text-4xl font-light tracking-tight text-slate-900">Strategic Agenda</h1>
                 </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-2">
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">01</span><span class="text-sm font-medium text-slate-600">Executive Summary</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">02</span><span class="text-sm font-medium text-slate-600">National Problem Data</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">03</span><span class="text-sm font-medium text-slate-600">Skills Gap Analysis</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">04</span><span class="text-sm font-medium text-slate-600">STEM Pipeline Crisis</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">05</span><span class="text-sm font-medium text-slate-600">Entrepreneurial Activation</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">06</span><span class="text-sm font-medium text-slate-600">The Triple Failure Insight</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">07</span><span class="text-sm font-medium text-slate-600">3 Pillar Model Overview</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">08</span><span class="text-sm font-medium text-slate-600">NSE: Opportunity</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">09</span><span class="text-sm font-medium text-slate-600">CFL: Passion</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">10</span><span class="text-sm font-medium text-slate-600">Skill Academy: Capability</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">11</span><span class="text-sm font-medium text-slate-600 font-bold text-blue-600">Leadership Structure</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">12</span><span class="text-sm font-medium text-slate-600">The 70/30 Funding Model</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">13</span><span class="text-sm font-medium text-slate-600">Execution Roadmap</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">14</span><span class="text-sm font-medium text-slate-600">Industry Partnerships</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">15</span><span class="text-sm font-medium text-slate-600">Brand Positioning</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">16</span><span class="text-sm font-medium text-slate-600">Scaling Strategy</span></div></div>
-                    <div class="flex items-center justify-between py-3 border-b border-slate-50 px-4"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">17</span><span class="text-sm font-medium text-slate-600">Call to Action</span></div></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-1">
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">01</span><span class="text-sm font-medium text-slate-600">Executive Summary</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">02</span><span class="text-sm font-medium text-slate-600">National Problem Data</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">03</span><span class="text-sm font-medium text-slate-600">Skills Gap Analysis</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">04</span><span class="text-sm font-medium text-slate-600">STEM Pipeline Crisis</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">05</span><span class="text-sm font-medium text-slate-600">Entrepreneurial Activation</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">06</span><span class="text-sm font-medium text-slate-600">The Triple Failure Insight</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">07</span><span class="text-sm font-medium text-slate-600">3 Pillar Model Overview</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">08</span><span class="text-sm font-medium text-slate-600">NSE: Opportunity</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">09</span><span class="text-sm font-medium text-slate-600">CFL: Passion</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">10</span><span class="text-sm font-medium text-slate-600">Skill Academy: Capability</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">11</span><span class="text-sm font-medium text-slate-600 font-bold text-blue-600">Leadership Structure</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">12</span><span class="text-sm font-medium text-slate-600">The 70/30 Funding Model</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">13</span><span class="text-sm font-medium text-slate-600">Execution Roadmap</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">14</span><span class="text-sm font-medium text-slate-600">Industry Partnerships</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">15</span><span class="text-sm font-medium text-slate-600">Brand Positioning</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">16</span><span class="text-sm font-medium text-slate-600">Scaling Strategy</span></div></div>
+                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">17</span><span class="text-sm font-medium text-slate-600">Call to Action</span></div></div>
                 </div>
             </section>
 
@@ -139,17 +150,31 @@
                 </header>
                 <div class="flex flex-col space-y-12">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-slate-50 p-8 border border-slate-100 text-center"><p class="text-4xl font-black tracking-tighter text-slate-900">23.5%</p><p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Digital GDP</p></div>
-                        <div class="bg-slate-50 p-8 border border-slate-100 text-center"><p class="text-4xl font-black tracking-tighter text-slate-900">11.1%</p><p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2 text-red-500">Youth Unemployment</p></div>
-                        <div class="bg-slate-50 p-8 border border-slate-100 text-center"><p class="text-4xl font-black tracking-tighter text-slate-900">1.86M</p><p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Brain Drain</p></div>
+                        <div class="bg-slate-50 p-8 border border-slate-100 text-center group cursor-default transition-all hover:bg-white hover:shadow-lg">
+                            <p class="text-4xl font-black tracking-tighter text-slate-900 transition-colors group-hover:text-blue-600">23.5%</p>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Digital GDP</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 border border-slate-100 text-center group cursor-default transition-all hover:bg-white hover:shadow-lg">
+                            <p class="text-4xl font-black tracking-tighter text-slate-900 transition-colors group-hover:text-red-500">11.1%</p>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Youth Unemployment</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 border border-slate-100 text-center group cursor-default transition-all hover:bg-white hover:shadow-lg">
+                            <p class="text-4xl font-black tracking-tighter text-slate-900 transition-colors group-hover:text-blue-800">1.86M</p>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Brain Drain</p>
+                        </div>
                     </div>
-                    <div class="max-w-3xl space-y-6">
-                        <p class="text-xl text-slate-600 leading-relaxed font-light">
-                            Malaysia is transitioning into a <span class="font-normal text-slate-900">digital, innovation-driven economy</span>. However, a dangerous mismatch exists: employers cannot find talent in AI and Data, while youth unemployment remains a systemic risk.
-                        </p>
-                        <div class="bg-blue-600 text-white p-8 inline-block">
-                            <p class="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">Our Response</p>
-                            <p class="text-xl font-light italic leading-snug">Developing a future-ready generation aligned with national economic priorities.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <p class="text-xl text-slate-600 leading-relaxed font-light">
+                                Malaysia is transitioning into a <span class="font-normal text-slate-900">digital, innovation-driven economy</span>. However, a dangerous mismatch exists: employers cannot find talent in AI and Data, while youth unemployment remains a systemic risk.
+                            </p>
+                            <div class="bg-blue-600 text-white p-8 inline-block shadow-xl">
+                                <p class="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">Our Response</p>
+                                <p class="text-xl font-light italic leading-snug">Developing a future-ready generation aligned with national economic priorities.</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block">
+                            <img src="https://images.unsplash.com/photo-1551288049-bbda48658a7d?auto=format&fit=crop&q=80&w=800" alt="Data Chart" class="w-full h-auto rounded-sm shadow-md grayscale hover:grayscale-0 transition-all duration-700">
                         </div>
                     </div>
                 </div>
@@ -166,14 +191,17 @@
                         <h3 class="text-3xl font-light text-slate-900 leading-tight">The "Exam-Oriented" System Failure</h3>
                         <p class="text-slate-500 leading-relaxed font-light">Malaysia's current system is designed for compliance, not high-stakes creation. Students excel at exams but struggle with execution.</p>
                         <div class="space-y-4">
-                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Market Validation</span></div>
-                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Strategic Execution</span></div>
-                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Business Articulation</span></div>
+                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white hover:bg-slate-50 transition-colors"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Market Validation</span></div>
+                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white hover:bg-slate-50 transition-colors"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Strategic Execution</span></div>
+                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white hover:bg-slate-50 transition-colors"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Business Articulation</span></div>
                         </div>
                     </div>
-                    <div class="bg-slate-900 p-12 text-white space-y-6">
-                        <p class="text-[10px] font-bold tracking-widest text-blue-400 uppercase">Core Insight</p>
-                        <p class="text-2xl font-light italic leading-relaxed">"Graduates know how to study, but <span class="text-blue-400 font-normal">they don't know how to build.</span>"</p>
+                    <div class="bg-slate-900 p-12 text-white space-y-6 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-10">
+                        <div class="relative z-10">
+                            <p class="text-[10px] font-bold tracking-widest text-blue-400 uppercase">Core Insight</p>
+                            <p class="text-2xl font-light italic leading-relaxed">"Graduates know how to study, but <span class="text-blue-400 font-normal">they don't know how to build.</span>"</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -185,55 +213,76 @@
                     <h1 class="text-4xl font-light tracking-tight text-slate-900">The Human Capital Deficit</h1>
                 </header>
                 <div class="flex flex-col justify-center space-y-12">
-                    <div class="flex flex-col md:flex-row items-end gap-8">
-                        <div class="w-full md:w-1/2 bg-blue-600 h-64 p-10 flex flex-col justify-end text-white">
-                            <p class="text-6xl font-black">65%</p>
-                            <p class="text-sm font-medium opacity-80">Workers lack advanced digital capabilities.</p>
+                    <div class="flex flex-col md:flex-row items-stretch gap-8">
+                        <div class="w-full md:w-1/2 bg-blue-600 p-10 flex flex-col justify-end text-white relative group overflow-hidden h-72 shadow-lg">
+                            <div class="absolute top-0 right-0 p-8 opacity-20 transform translate-x-4 -translate-y-4 transition-transform group-hover:translate-x-0 group-hover:translate-y-0">
+                                <i data-lucide="bar-chart-3" class="w-24 h-24"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <p class="text-6xl font-black">65%</p>
+                                <p class="text-sm font-medium opacity-80 max-w-xs mt-2">Workers lack advanced digital capabilities despite high priority.</p>
+                            </div>
                         </div>
-                        <div class="w-full md:w-1/2 space-y-4 pb-4 border-b border-slate-100">
-                            <p class="text-2xl font-light text-slate-800 italic">"Employers struggle to fill roles in AI, Cloud, and Data."</p>
+                        <div class="w-full md:w-1/2 flex flex-col justify-center space-y-6 bg-slate-50 p-10 border border-slate-100">
+                            <p class="text-2xl font-light text-slate-800 italic leading-relaxed">"Employers struggle to fill roles in AI, Cloud, and Data."</p>
+                            <div class="h-0.5 w-16 bg-blue-600"></div>
                             <p class="text-slate-400 text-sm italic">— Industry Insight Report</p>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div class="space-y-4">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-600">Communication Barrier</h4>
-                            <p class="text-slate-600 font-light">81.5% of industries cite communication as the #1 priority, yet it remains the biggest deficit in local graduates.</p>
+                            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-600 flex items-center gap-2">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                                Communication Barrier
+                            </h4>
+                            <p class="text-slate-600 font-light leading-relaxed">81.5% of industries cite communication as the #1 priority, yet it remains the biggest deficit in local graduates.</p>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-600">Digital Execution</h4>
-                            <p class="text-slate-600 font-light">Theoretical knowledge is high; practical, hands-on implementation is critically low.</p>
+                            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-600 flex items-center gap-2">
+                                <i data-lucide="code" class="w-4 h-4"></i>
+                                Digital Execution
+                            </h4>
+                            <p class="text-slate-600 font-light leading-relaxed">Theoretical knowledge is high; practical, hands-on implementation is critically low.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Page 7: STEM -->
+            <!-- Page 7: STEM Interactive -->
             <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
                 <header class="mb-12 border-l-2 border-blue-600 pl-6">
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Challenge 03</h2>
                     <h1 class="text-4xl font-light tracking-tight text-slate-900">Innovation Pipeline Crisis</h1>
                 </header>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 h-full items-center">
-                    <div class="bg-slate-50 p-12 border border-slate-100 space-y-10">
-                        <div class="space-y-2">
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">National Target</p>
-                            <div class="flex items-center gap-4">
-                                <span class="text-4xl font-light">60%</span>
-                                <div class="flex-1 h-1 bg-slate-200"><div class="w-[60%] h-full bg-slate-400"></div></div>
+                    <div class="bg-white p-12 border border-slate-100 space-y-12 shadow-sm">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end">
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">National Target</p>
+                                <span class="text-3xl font-light">60%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-slate-300 chart-transition" style="width: 60%"></div>
                             </div>
                         </div>
-                        <div class="space-y-2">
-                            <p class="text-xs font-bold text-red-400 uppercase tracking-widest">Actual Reality</p>
-                            <div class="flex items-center gap-4">
-                                <span class="text-4xl font-black text-red-500">15.2%</span>
-                                <div class="flex-1 h-1 bg-slate-200"><div class="w-[15.2%] h-full bg-red-500"></div></div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end">
+                                <p class="text-xs font-bold text-red-500 uppercase tracking-widest">Actual Participation</p>
+                                <span class="text-3xl font-black text-red-500 animate-pulse">15.2%</span>
                             </div>
+                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-red-500 chart-transition" style="width: 15.2%"></div>
+                            </div>
+                        </div>
+                        <div class="pt-6 border-t border-slate-50 flex items-center gap-3 text-xs text-slate-400 italic">
+                            <i data-lucide="info" class="w-4 h-4"></i>
+                            The mismatch represents a critical threat to the innovation pipeline.
                         </div>
                     </div>
                     <div class="space-y-8">
                         <h3 class="text-3xl font-light text-slate-900 leading-tight">Students don't reject STEM; they reject <span class="font-normal italic">disconnected</span> STEM.</h3>
                         <p class="text-slate-500 text-lg font-light leading-relaxed">The lack of inspiration and hands-on experience has created a massive commitment gap in the pure science streams.</p>
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" class="w-full h-48 object-cover rounded-sm grayscale">
                     </div>
                 </div>
             </section>
@@ -246,13 +295,16 @@
                 </header>
                 <div class="flex flex-col space-y-12 h-full justify-center">
                     <div class="flex flex-col md:flex-row gap-12">
-                        <div class="flex-1 p-10 bg-slate-900 text-white rounded-sm">
-                            <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">The Latency Issue</p>
-                            <p class="text-2xl font-light leading-relaxed italic">"Youth are not activated early enough. Exposure to the economy starts too late in the educational journey."</p>
+                        <div class="flex-1 p-10 bg-slate-900 text-white rounded-sm relative overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-10">
+                            <div class="relative z-10">
+                                <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">The Latency Issue</p>
+                                <p class="text-2xl font-light leading-relaxed italic">"Youth are not activated early enough. Exposure to the economy starts too late in the educational journey."</p>
+                            </div>
                         </div>
                         <div class="flex-1 flex flex-col justify-center space-y-6">
                             <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Activation Gap.</h3>
-                            <p class="text-slate-500 font-light">Potential is high, but the "Employee Mindset" is ingrained too early, suppressing natural innovative instincts.</p>
+                            <p class="text-slate-500 font-light leading-relaxed text-lg">Potential is high, but the "Employee Mindset" is ingrained too early, suppressing natural innovative instincts and bold execution.</p>
                         </div>
                     </div>
                     <div class="h-px bg-slate-100 w-full"></div>
@@ -261,23 +313,24 @@
             </section>
 
             <!-- Page 9: The Edge -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto bg-slate-900 text-white">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
+            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto bg-slate-900 text-white relative">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale">
+                <header class="mb-12 border-l-2 border-blue-600 pl-6 relative z-10">
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Strategic Edge</h2>
                     <h1 class="text-4xl font-light tracking-tight text-white">The Strategic Differentiator</h1>
                 </header>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-1 h-full py-12">
-                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-slate-800 transition-colors">
-                        <div class="opacity-40"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Job Creation</p></div>
-                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1">Intervention</p><p class="text-2xl font-bold italic">NSE (Entrepreneurship)</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-1 h-full py-12 relative z-10">
+                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-blue-600 transition-all duration-500 group">
+                        <div class="opacity-40 group-hover:opacity-100"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Job Creation</p></div>
+                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1 group-hover:text-white">Intervention</p><p class="text-2xl font-bold italic">NSE (Entrepreneurship)</p></div>
                     </div>
-                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-slate-800 transition-colors">
-                        <div class="opacity-40"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Career Direction</p></div>
-                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1">Intervention</p><p class="text-2xl font-bold italic">CFL (STEM Exposure)</p></div>
+                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-blue-800 transition-all duration-500 group">
+                        <div class="opacity-40 group-hover:opacity-100"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Career Direction</p></div>
+                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1 group-hover:text-white">Intervention</p><p class="text-2xl font-bold italic">CFL (STEM Exposure)</p></div>
                     </div>
-                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-slate-800 transition-colors">
-                        <div class="opacity-40"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Real Skills</p></div>
-                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1">Intervention</p><p class="text-2xl font-bold italic">Academy (Skills Training)</p></div>
+                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-blue-950 transition-all duration-500 group">
+                        <div class="opacity-40 group-hover:opacity-100"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Real Skills</p></div>
+                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1 group-hover:text-white">Intervention</p><p class="text-2xl font-bold italic">Academy (Skills Training)</p></div>
                     </div>
                 </div>
             </section>
@@ -288,17 +341,17 @@
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Solution Model</h2>
                     <h1 class="text-4xl font-light tracking-tight text-slate-900">The 3 Pillar Framework</h1>
                 </header>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100 h-full">
-                    <div class="p-12 border-r border-slate-100 flex flex-col justify-between hover:bg-slate-50 transition-all">
-                        <div class="w-12 h-12 flex items-center justify-center text-blue-600 mb-8"><i data-lucide="briefcase"></i></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100 h-full shadow-sm">
+                    <div class="p-12 border-r border-slate-100 flex flex-col justify-between hover:bg-slate-50 transition-all group">
+                        <div class="w-12 h-12 flex items-center justify-center text-blue-600 mb-8 group-hover:scale-110 transition-transform"><i data-lucide="briefcase"></i></div>
                         <div><p class="text-[10px] font-black uppercase text-blue-600 mb-2">Builders of Opportunity</p><h3 class="text-2xl font-light text-slate-800 mb-6">Entrepreneurship</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white p-3 border border-slate-100 inline-block">NSE Program</p></div>
                     </div>
-                    <div class="p-12 border-r border-slate-100 flex flex-col justify-between hover:bg-slate-50 transition-all">
-                        <div class="w-12 h-12 flex items-center justify-center text-blue-800 mb-8"><i data-lucide="cpu"></i></div>
+                    <div class="p-12 border-r border-slate-100 flex flex-col justify-between hover:bg-slate-50 transition-all group">
+                        <div class="w-12 h-12 flex items-center justify-center text-blue-800 mb-8 group-hover:scale-110 transition-transform"><i data-lucide="cpu"></i></div>
                         <div><p class="text-[10px] font-black uppercase text-blue-800 mb-2">Builders of Passion</p><h3 class="text-2xl font-light text-slate-800 mb-6">STEM</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white p-3 border border-slate-100 inline-block">CFL Program</p></div>
                     </div>
-                    <div class="p-12 flex flex-col justify-between hover:bg-slate-50 transition-all">
-                        <div class="w-12 h-12 flex items-center justify-center text-blue-400 mb-8"><i data-lucide="layers"></i></div>
+                    <div class="p-12 flex flex-col justify-between hover:bg-slate-50 transition-all group">
+                        <div class="w-12 h-12 flex items-center justify-center text-blue-400 mb-8 group-hover:scale-110 transition-transform"><i data-lucide="layers"></i></div>
                         <div><p class="text-[10px] font-black uppercase text-blue-400 mb-2">Builders of Capability</p><h3 class="text-2xl font-light text-slate-800 mb-6">Skills</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white p-3 border border-slate-100 inline-block">SBA Program</p></div>
                     </div>
                 </div>
@@ -315,12 +368,15 @@
                         <h3 class="text-4xl font-light tracking-tight">Early Business <br/>Activation.</h3>
                         <p class="text-slate-500 text-lg leading-relaxed font-light">We incubate entrepreneurs at the high-school level, building confidence and creativity early.</p>
                         <div class="flex gap-12">
-                            <div><p class="text-3xl font-black text-slate-900">78%</p><p class="text-[10px] font-bold text-slate-400 uppercase mt-1">Interest Lift</p></div>
-                            <div><p class="text-3xl font-black text-slate-900">PILOT</p><p class="text-[10px] font-bold text-slate-400 uppercase mt-1">Ready 2026</p></div>
+                            <div class="p-4 bg-white border border-slate-100 shadow-sm"><p class="text-3xl font-black text-slate-900">78%</p><p class="text-[10px] font-bold text-slate-400 uppercase mt-1">Interest Lift</p></div>
+                            <div class="p-4 bg-white border border-slate-100 shadow-sm"><p class="text-3xl font-black text-slate-900">PILOT</p><p class="text-[10px] font-bold text-slate-400 uppercase mt-1">Ready 2026</p></div>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-12 space-y-8 italic text-slate-600 font-light leading-relaxed border border-slate-100">
-                        <p>"Entrepreneurship must start before university to be effective. We provide real-world simulation with execution metrics."</p>
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1000" alt="Entrepreneur" class="w-full h-80 object-cover shadow-2xl rounded-sm">
+                        <div class="absolute -bottom-8 -left-8 bg-white p-8 space-y-4 shadow-xl border border-slate-100 max-w-xs">
+                            <p class="text-sm italic text-slate-600 leading-relaxed">"Entrepreneurship must start before university to be truly effective."</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -331,12 +387,13 @@
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Cipta Future Lab</h2>
                     <h1 class="text-4xl font-light tracking-tight text-slate-900">Builders of Passion</h1>
                 </header>
-                <div class="bg-slate-900 text-white p-16 flex flex-col md:flex-row justify-between items-center gap-12">
-                    <div class="space-y-6 max-w-xl">
+                <div class="bg-slate-900 text-white p-16 flex flex-col md:flex-row justify-between items-center gap-12 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-10">
+                    <div class="space-y-6 max-w-xl relative z-10">
                         <h3 class="text-4xl font-light">Transforming the STEM Narrative.</h3>
-                        <p class="text-slate-400 text-lg font-light leading-relaxed">CFL connects innovation with real-world problems. We don't just study science—we build solutions.</p>
+                        <p class="text-slate-400 text-lg font-light leading-relaxed">CFL connects innovation with real-world problems. We don't just study science—we build solutions with purpose.</p>
                     </div>
-                    <div class="flex-shrink-0 bg-blue-600 w-32 h-32 flex items-center justify-center text-white font-black text-2xl">CFL</div>
+                    <div class="flex-shrink-0 bg-blue-600 w-32 h-32 flex items-center justify-center text-white font-black text-2xl relative z-10 shadow-2xl">CFL</div>
                 </div>
             </section>
 
@@ -349,34 +406,45 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 h-full items-center">
                     <div class="space-y-10">
                         <h3 class="text-3xl font-light tracking-tighter">Human Skills + <br/>Digital Mastery.</h3>
-                        <p class="text-slate-500 font-light leading-relaxed">Bridging the gap by focusing on digital mastery (AI/Data) and professional communication.</p>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-4 py-3 px-6 bg-slate-50 border-l-2 border-blue-600 text-sm font-bold">AI Execution</div>
-                            <div class="flex items-center gap-4 py-3 px-6 bg-slate-50 border-l-2 border-blue-600 text-sm font-bold">Professional Communication</div>
+                        <p class="text-slate-500 font-light leading-relaxed">Bridging the gap by focusing on digital mastery (AI/Data) and professional communication for the future economy.</p>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-center gap-4 py-4 px-8 bg-slate-50 border-l-4 border-blue-600 text-sm font-bold shadow-sm transition-all hover:bg-blue-600 hover:text-white group">
+                                <i data-lucide="zap" class="w-4 h-4 text-blue-600 group-hover:text-white"></i>
+                                AI Execution & Prompt Engineering
+                            </div>
+                            <div class="flex items-center gap-4 py-4 px-8 bg-slate-50 border-l-4 border-blue-800 text-sm font-bold shadow-sm transition-all hover:bg-blue-800 hover:text-white group">
+                                <i data-lucide="users" class="w-4 h-4 text-blue-800 group-hover:text-white"></i>
+                                Professional Persuasion & Communication
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-slate-900 text-white p-12 text-center italic font-light">"We provide execution excellence."</div>
+                    <div class="bg-slate-900 text-white p-12 text-center italic font-light relative group">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="relative z-10">
+                            "We don't just provide knowledge. <br>We provide <span class="text-blue-400 font-bold">execution excellence</span>."
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Page 14: Roadmap -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
+            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto overflow-y-auto no-scrollbar">
                 <header class="mb-12 border-l-2 border-blue-600 pl-6">
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Implementation Phasing</h2>
                     <h1 class="text-4xl font-light tracking-tight text-slate-900">Execution Roadmap</h1>
                 </header>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100">
-                    <div class="p-12 bg-slate-50 flex flex-col justify-between h-80 border-r border-slate-100">
-                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-50">3-6 Months</p><h4 class="text-2xl font-light">Phase 01: Pilot</h4></div>
-                        <p class="text-sm font-light opacity-70">Launch NSE Core with 2-3 Pilot Schools.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100 shadow-xl rounded-sm overflow-hidden">
+                    <div class="p-12 bg-slate-50 flex flex-col justify-between h-80 border-r border-slate-100 hover:bg-white transition-colors cursor-default group">
+                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-50 group-hover:text-blue-600">3-6 Months</p><h4 class="text-2xl font-light mt-1">Phase 01: Pilot</h4></div>
+                        <p class="text-sm font-light opacity-70 leading-relaxed">Launch NSE Core with 2-3 Pilot Schools. Focus on immediate feedback loops.</p>
                     </div>
-                    <div class="p-12 bg-blue-50 flex flex-col justify-between h-80 border-r border-slate-100">
-                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-50">6-12 Months</p><h4 class="text-2xl font-light text-blue-900">Phase 02: Expansion</h4></div>
-                        <p class="text-sm font-light opacity-70">Add Cipta Future Lab and secure CSR Partners.</p>
+                    <div class="p-12 bg-blue-50 flex flex-col justify-between h-80 border-r border-slate-100 hover:bg-white transition-colors cursor-default group">
+                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-50 group-hover:text-blue-800">6-12 Months</p><h4 class="text-2xl font-light text-blue-900 mt-1">Phase 02: Expansion</h4></div>
+                        <p class="text-sm font-light opacity-70 leading-relaxed">Add Cipta Future Lab and secure CSR Partners for regional reach.</p>
                     </div>
-                    <div class="p-12 bg-slate-900 text-white flex flex-col justify-between h-80">
-                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-40">1-3 Years</p><h4 class="text-2xl font-light">Phase 03: Scale</h4></div>
-                        <p class="text-sm font-light opacity-60">Nationwide expansion and alumni network development.</p>
+                    <div class="p-12 bg-slate-900 text-white flex flex-col justify-between h-80 hover:bg-blue-950 transition-colors cursor-default group">
+                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-40 group-hover:text-blue-400">1-3 Years</p><h4 class="text-2xl font-light mt-1">Phase 03: Scale</h4></div>
+                        <p class="text-sm font-light opacity-60 leading-relaxed">Nationwide expansion and digital alumni network for sustainable impact.</p>
                     </div>
                 </div>
             </section>
@@ -391,17 +459,17 @@
                 <!-- 3 Founders Tier -->
                 <div class="w-full flex justify-center mb-16">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
-                        <div class="p-8 border border-slate-100 bg-white text-center hover:border-blue-600 transition-all">
+                        <div class="p-8 border border-slate-100 bg-white text-center hover:shadow-xl hover:-translate-y-1 transition-all">
                             <p class="text-[10px] font-black text-blue-600 uppercase mb-1 italic">Founder</p>
                             <h3 class="text-xl font-light text-slate-900">Nazmi Mohamed</h3>
                             <p class="text-[10px] font-bold text-slate-400 uppercase mt-4">Managing Director</p>
                         </div>
-                        <div class="p-8 border border-slate-100 bg-white text-center hover:border-blue-600 transition-all">
+                        <div class="p-8 border border-slate-100 bg-white text-center hover:shadow-xl hover:-translate-y-1 transition-all">
                             <p class="text-[10px] font-black text-blue-600 uppercase mb-1 italic">Co-Founder</p>
                             <h3 class="text-xl font-light text-slate-900">Arham Munir</h3>
                             <p class="text-[10px] font-bold text-slate-400 uppercase mt-4">CEO</p>
                         </div>
-                        <div class="p-8 border border-slate-100 bg-white text-center hover:border-blue-600 transition-all">
+                        <div class="p-8 border border-slate-100 bg-white text-center hover:shadow-xl hover:-translate-y-1 transition-all">
                             <p class="text-[10px] font-black text-blue-600 uppercase mb-1 italic">Co-Founder</p>
                             <h3 class="text-xl font-light text-slate-900">Shahmie</h3>
                             <p class="text-[10px] font-bold text-slate-400 uppercase mt-4">CPO</p>
@@ -412,19 +480,19 @@
                 <!-- 4 Leads Tier -->
                 <div class="w-full flex justify-center">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-6xl">
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center">
+                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
                             <p class="text-[10px] font-black text-slate-400 uppercase mb-1">NSE Lead</p>
                             <p class="text-xs font-medium text-slate-600 italic">Entrepreneurship</p>
                         </div>
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center">
+                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
                             <p class="text-[10px] font-black text-slate-400 uppercase mb-1">CFL Lead</p>
                             <p class="text-xs font-medium text-slate-600 italic">STEM Pipeline</p>
                         </div>
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center">
+                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
                             <p class="text-[10px] font-black text-slate-400 uppercase mb-1">SBA Lead</p>
                             <p class="text-xs font-medium text-slate-600 italic">Skill Academy</p>
                         </div>
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center">
+                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
                             <p class="text-[10px] font-black text-slate-400 uppercase mb-1">Growth Lead</p>
                             <p class="text-xs font-medium text-slate-600 italic">Partnerships</p>
                         </div>
@@ -432,7 +500,7 @@
                 </div>
             </section>
 
-            <!-- Page 16: Funding -->
+            <!-- Page 16: Funding Interactive -->
             <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
                 <header class="mb-12 border-l-2 border-blue-600 pl-6">
                     <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Funding Model</h2>
@@ -441,39 +509,71 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     <div class="space-y-12">
                         <h3 class="text-4xl font-light tracking-tighter">The 70/30 <br/><span class="text-blue-600 italic font-normal">Architecture.</span></h3>
-                        <p class="text-slate-500 font-light leading-relaxed">High-impact delivery: 70% direct program capital, 30% operational excellence.</p>
-                        <div class="space-y-6">
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-[10px] font-bold uppercase"><span>Program Cost</span><span>70%</span></div>
-                                <div class="h-1 bg-slate-100"><div class="w-[70%] h-full bg-blue-600"></div></div>
+                        <p class="text-slate-500 font-light leading-relaxed">High-impact delivery ensures maximum value for stakeholders: 70% direct program capital, 30% operational management.</p>
+                        <div class="space-y-8">
+                            <div class="group cursor-pointer">
+                                <div class="flex justify-between text-[11px] font-black uppercase mb-3 transition-colors group-hover:text-blue-600">
+                                    <span class="flex items-center gap-2"><i data-lucide="target" class="w-3 h-3"></i> Direct Program Cost</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-600 chart-transition group-hover:bg-blue-500" style="width: 70%"></div>
+                                </div>
+                                <p class="text-[10px] text-slate-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Materials, workshops, student facilitators, and field activities.</p>
                             </div>
-                            <div class="space-y-2 opacity-40">
-                                <div class="flex justify-between text-[10px] font-bold uppercase"><span>Management</span><span>30%</span></div>
-                                <div class="h-1 bg-slate-100"><div class="w-[30%] h-full bg-slate-400"></div></div>
+                            <div class="group cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+                                <div class="flex justify-between text-[11px] font-black uppercase mb-3 transition-colors group-hover:text-slate-900">
+                                    <span class="flex items-center gap-2"><i data-lucide="settings" class="w-3 h-3"></i> Operations & Management</span>
+                                    <span>30%</span>
+                                </div>
+                                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-slate-400 chart-transition group-hover:bg-slate-500" style="width: 30%"></div>
+                                </div>
+                                <p class="text-[10px] text-slate-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Administrative overhead, governance, and long-term strategy maintenance.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-12 border border-slate-100 grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-white text-center text-xs font-bold uppercase tracking-widest text-slate-400 border border-slate-100">CSR</div>
-                        <div class="p-4 bg-white text-center text-xs font-bold uppercase tracking-widest text-slate-400 border border-slate-100">Grants</div>
-                        <div class="p-4 bg-white text-center text-xs font-bold uppercase tracking-widest text-slate-400 border border-slate-100">Donations</div>
-                        <div class="p-4 bg-white text-center text-xs font-bold uppercase tracking-widest text-slate-400 border border-slate-100">Partners</div>
+                    <div class="bg-slate-50 p-12 border border-slate-100 grid grid-cols-2 gap-4 shadow-inner relative">
+                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">CSR</p>
+                            <i data-lucide="building-2" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
+                        </div>
+                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Grants</p>
+                            <i data-lucide="landmark" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
+                        </div>
+                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Donations</p>
+                            <i data-lucide="heart" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
+                        </div>
+                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Partners</p>
+                            <i data-lucide="handshake" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Page 17: Conclusion -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto bg-slate-900 text-white items-center justify-center text-center">
-                <div class="max-w-3xl space-y-8">
+            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto bg-slate-900 text-white items-center justify-center text-center relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale">
+                <div class="max-w-3xl space-y-12 relative z-10">
+                    <div class="inline-block p-4 bg-blue-600 text-white rounded-sm mb-4 shadow-2xl">
+                        <i data-lucide="rocket" class="w-8 h-8"></i>
+                    </div>
                     <h2 class="text-5xl font-extralight tracking-tight leading-tight">Ready to <span class="text-blue-400 italic">activate</span> the next generation?</h2>
                     <div class="h-px w-24 bg-blue-500 mx-auto opacity-30"></div>
-                    <p class="text-slate-400 text-xl font-light italic leading-relaxed">"Persatuan Pembina Muda Negara ensures youth build the future economy."</p>
+                    <p class="text-slate-400 text-xl font-light italic leading-relaxed">"Persatuan Pembina Muda Negara ensures youth build the future economy through opportunity, passion, and capability."</p>
                 </div>
-                <div class="flex gap-12 pt-20">
-                    <div class="text-center group border-b border-slate-700 pb-2"><p class="text-lg font-light">Partnerships</p></div>
-                    <div class="text-center group border-b border-slate-700 pb-2"><p class="text-lg font-light">Funding</p></div>
+                <div class="flex gap-12 pt-20 relative z-10">
+                    <div class="text-center group border-b border-slate-700 pb-2 cursor-pointer hover:border-blue-400 transition-colors">
+                        <p class="text-lg font-light group-hover:text-blue-400">Partnerships</p>
+                    </div>
+                    <div class="text-center group border-b border-slate-700 pb-2 cursor-pointer hover:border-blue-400 transition-colors">
+                        <p class="text-lg font-light group-hover:text-blue-400">Funding</p>
+                    </div>
                 </div>
-                <div class="pt-20 opacity-30 text-xs font-bold tracking-[0.5em] uppercase">Building Malaysia's Future Builders</div>
+                <div class="pt-20 opacity-30 text-xs font-bold tracking-[0.5em] uppercase relative z-10">Building Malaysia's Future Builders</div>
             </section>
 
         </main>
@@ -548,6 +648,10 @@
                 nextBtn.classList.remove('opacity-10', 'cursor-not-allowed');
                 nextBtn.classList.add('text-blue-600');
             }
+
+            // Scroll content to top on page change
+            const content = document.getElementById('content');
+            content.scrollTop = 0;
         }
 
         nextBtn.addEventListener('click', () => {
