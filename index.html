@@ -5,684 +5,712 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPMN Strategic Proposal 2026/2027</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-        
+        :root {
+            --brand-blue: #2563eb;
+            --brand-purple: #7c3aed;
+            --brand-emerald: #059669;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            overflow: hidden;
+            scroll-behavior: smooth;
+            background-color: #fcfcfd;
+            color: #1e293b;
         }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        h1, h2, h3, .font-heading {
+            font-family: 'Outfit', sans-serif;
         }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        .page.active {
+        .slide {
+            min-height: 100vh;
+            padding: 5rem 1.5rem;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #f1f5f9;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .stat-card:hover .stat-bar {
-            height: 100%;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
-
-        .chart-transition {
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .source-link {
+            font-size: 0.65rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
         }
-
-        .img-placeholder {
-            background-color: #f1f5f9;
-            background-size: cover;
-            background-position: center;
+        .source-link:hover { color: var(--brand-blue); }
+        @media (max-width: 768px) {
+            .slide { padding: 3rem 1rem; min-height: auto; }
+            .chart-container { height: 250px !important; }
         }
     </style>
 </head>
-<body class="bg-slate-50 selection:bg-blue-100 selection:text-blue-900">
+<body class="antialiased">
 
-    <div id="presentation-container" class="fixed inset-0 flex flex-col bg-white overflow-hidden shadow-2xl">
-        
-        <!-- Top Progress Bar -->
-        <div class="absolute top-0 left-0 w-full h-0.5 bg-slate-100 z-50">
-            <div id="progress-bar" class="h-full bg-blue-600 transition-all duration-700 ease-in-out" style="width: 5.88%;"></div>
+    <!-- Slide 1: Cover Page -->
+    <section id="slide-1" class="slide bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full -mr-48 -mt-48 blur-3xl opacity-60"></div>
+        <div class="max-w-5xl mx-auto text-center px-4 relative z-10">
+            <span class="inline-block px-4 py-2 mb-8 text-[10px] font-bold tracking-[0.3em] text-blue-600 uppercase bg-blue-50 rounded-full">Strategic Proposal 2026/2027</span>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 leading-[1.1] tracking-tight">
+                PERSATUAN <br/>
+                <span class="gradient-text">PEMBINA MUDA</span> <br/>
+                NEGARA
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-12 font-light tracking-wide italic">"Creating Malaysia's Future Builders"</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="#slide-2" class="px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition shadow-xl shadow-blue-200 flex items-center gap-3">
+                    Begin Journey 
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- Main Content Area -->
-        <main id="content" class="flex-1 overflow-hidden relative">
-            
-            <!-- Page 1: Cover -->
-            <section class="page active flex-col items-center justify-center h-full text-center p-10 md:p-20 relative bg-white">
-                <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1600" alt="Students" class="absolute inset-0 w-full h-full object-cover opacity-5 mix-blend-overlay">
-                    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-50 rounded-full -mr-64 -mt-64"></div>
-                    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-50 rounded-full -ml-32 -mb-32 opacity-50"></div>
-                </div>
-                <div class="relative z-10 space-y-8">
-                    <div class="inline-block p-4 bg-slate-900 text-white rounded-sm mb-4">
-                        <i data-lucide="globe" class="w-8 h-8"></i>
-                    </div>
-                    <div class="space-y-2">
-                        <h1 class="text-6xl font-extralight tracking-tighter text-slate-900">
-                            PERSATUAN PEMBINA <br/> 
-                            <span class="font-black text-blue-600">MUDA NEGARA</span>
-                        </h1>
-                        <p class="text-sm font-bold tracking-[0.4em] text-slate-400 uppercase">Young Builders Society</p>
-                    </div>
-                    <div class="h-px w-24 bg-blue-600 mx-auto my-12"></div>
-                    <div class="space-y-4">
-                        <p class="text-2xl font-light text-slate-600 italic">"Creating Malaysia's Future Builders"</p>
-                        <div class="text-[10px] font-bold tracking-[0.3em] uppercase bg-slate-50 px-6 py-2 rounded-full inline-block">Strategic Proposal 2026/27</div>
-                    </div>
-                </div>
-            </section>
+    <!-- Slide 2: Table of Contents -->
+    <section id="slide-2" class="slide bg-slate-50/50">
+        <div class="max-w-5xl mx-auto w-full px-4">
+            <h2 class="text-xs font-bold mb-10 border-l-4 border-blue-600 pl-4 uppercase tracking-[0.3em] text-slate-400">Proposal Roadmap</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <a href="#slide-3" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">01</span> Executive Summary
+                </a>
+                <a href="#slide-4" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">02</span> Education Gap
+                </a>
+                <a href="#slide-5" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">03</span> Skills Mismatch
+                </a>
+                <a href="#slide-6" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">04</span> STEM Reality Gap
+                </a>
+                <a href="#slide-7" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">05</span> Entrepreneurship Gap
+                </a>
+                <a href="#slide-8" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">06</span> Strategic Risks
+                </a>
+                <a href="#slide-9" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">07</span> The 3 Pillars
+                </a>
+                <a href="#slide-10" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">08</span> NSE: Opportunity
+                </a>
+                <a href="#slide-11" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">09</span> CFL: Passion
+                </a>
+                <a href="#slide-12" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">10</span> SBA: Capability
+                </a>
+                <a href="#slide-13" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">11</span> Systemic Edge
+                </a>
+                <a href="#slide-14" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">12</span> Strategic Positioning
+                </a>
+                <a href="#slide-15" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">13</span> Org Structure
+                </a>
+                <a href="#slide-16" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">14</span> Funding & Roadmap
+                </a>
+                <a href="#slide-17" class="p-3 bg-white rounded-xl border border-slate-100 flex items-center gap-3 hover:border-blue-300 transition text-sm">
+                    <span class="text-blue-600 font-bold">15</span> Final Positioning
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Page 2: Vision -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Organization Identity</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">The Core Mandate</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-                    <div class="space-y-12">
-                        <div class="space-y-4">
-                            <p class="text-4xl font-extralight leading-tight text-slate-800">
-                                We don’t prepare students to <span class="font-normal text-blue-600 underline underline-offset-8 decoration-1">wait</span> for the future.
-                            </p>
-                            <p class="text-4xl font-bold leading-tight text-slate-900">We prepare them to build it.</p>
+    <!-- Slide 3: Executive Summary + GDP Graph -->
+    <section id="slide-3" class="slide bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-5xl font-extrabold mb-12">Executive <span class="text-blue-600">Summary</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <p class="text-xl text-slate-500 leading-relaxed font-light">
+                        PPMN addresses a critical national challenge: Malaysia's digital economy is accelerating, yet youth readiness is lagging.
+                    </p>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            </div>
+                            <h4 class="font-bold text-slate-800">~23.5% GDP Contribution</h4>
                         </div>
-                        <p class="text-slate-500 text-lg leading-relaxed max-w-md font-light">
-                            PPMN is a national talent development engine bridging the gap between academic theory and economic execution.
+                        <div class="chart-container relative h-48 w-full">
+                            <canvas id="gdpChart"></canvas>
+                        </div>
+                        <a href="https://mdec.my/digital-economy-malaysia/" target="_blank" class="source-link">
+                            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                            Source: MDEC Digital Economy Report
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-blue-600 p-10 rounded-[2.5rem] text-white flex flex-col justify-center shadow-2xl">
+                    <p class="text-2xl font-light italic mb-8">"The mismatch creates a dangerous gap between academic certification and real-world execution."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 bg-white/10 rounded-xl">
+                            <p class="text-3xl font-black">11.1%</p>
+                            <p class="text-[10px] uppercase font-bold text-blue-200">Youth Unemployment</p>
+                        </div>
+                    </div>
+                    <a href="https://www.dosm.gov.my/" target="_blank" class="source-link text-blue-200 mt-6">
+                        Source: DOSM Labour Force Statistics
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Education Gap -->
+    <section id="slide-4" class="slide bg-slate-50/30">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-6">Gap Analysis</h3>
+            <h2 class="text-5xl font-extrabold mb-10">Education vs <span class="text-slate-400">Application</span></h2>
+            <div class="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm text-left">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-slate-800">The Problem</h4>
+                        <ul class="space-y-4">
+                            <li class="flex gap-3">
+                                <svg class="text-red-500 shrink-0" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+                                <p class="text-sm text-slate-600">Exam-oriented systems limit practical trial-and-error.</p>
+                            </li>
+                            <li class="flex gap-3">
+                                <svg class="text-red-500 shrink-0" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+                                <p class="text-sm text-slate-600">Entrepreneurship is treated as elective, not foundational.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 mb-4">The Solution (NSE)</h4>
+                        <p class="text-sm text-blue-800 leading-relaxed italic">
+                            By shifting the focus to "School Enterprises," we allow students to earn while they learn, converting theory into commercial viability before graduation.
                         </p>
                     </div>
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-blue-600 -rotate-2 scale-105 opacity-5"></div>
-                        <div class="bg-white p-12 rounded-sm border border-slate-100 flex flex-col gap-8 relative z-10 shadow-sm">
-                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">01</span><span class="text-lg font-light tracking-tight">Building Capability</span></div>
-                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">02</span><span class="text-lg font-light tracking-tight">Mindset Shift</span></div>
-                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">03</span><span class="text-lg font-light tracking-tight">STEM Pipeline</span></div>
-                            <div class="flex items-center gap-6 group"><span class="text-xs font-bold text-blue-600">04</span><span class="text-lg font-light tracking-tight">Job Creation</span></div>
-                        </div>
-                    </div>
                 </div>
-            </section>
-
-            <!-- Page 3: Agenda -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto overflow-y-auto no-scrollbar">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Table of Contents</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Strategic Agenda</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-1">
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">01</span><span class="text-sm font-medium text-slate-600">Executive Summary</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">02</span><span class="text-sm font-medium text-slate-600">National Problem Data</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">03</span><span class="text-sm font-medium text-slate-600">Skills Gap Analysis</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">04</span><span class="text-sm font-medium text-slate-600">STEM Pipeline Crisis</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">05</span><span class="text-sm font-medium text-slate-600">Entrepreneurial Activation</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">06</span><span class="text-sm font-medium text-slate-600">The Triple Failure Insight</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">07</span><span class="text-sm font-medium text-slate-600">3 Pillar Model Overview</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">08</span><span class="text-sm font-medium text-slate-600">NSE: Opportunity</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">09</span><span class="text-sm font-medium text-slate-600">CFL: Passion</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">10</span><span class="text-sm font-medium text-slate-600">Skill Academy: Capability</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">11</span><span class="text-sm font-medium text-slate-600 font-bold text-blue-600">Leadership Structure</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">12</span><span class="text-sm font-medium text-slate-600">The 70/30 Funding Model</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">13</span><span class="text-sm font-medium text-slate-600">Execution Roadmap</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">14</span><span class="text-sm font-medium text-slate-600">Industry Partnerships</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">15</span><span class="text-sm font-medium text-slate-600">Brand Positioning</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">16</span><span class="text-sm font-medium text-slate-600">Scaling Strategy</span></div></div>
-                    <div class="flex items-center justify-between py-2 border-b border-slate-50 px-4 hover:bg-slate-50 cursor-pointer transition-colors"><div class="flex items-center gap-4"><span class="text-[10px] font-black text-slate-300 w-6">17</span><span class="text-sm font-medium text-slate-600">Call to Action</span></div></div>
-                </div>
-            </section>
-
-            <!-- Page 4: Exec Summary -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Executive Summary</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">National Economic Context</h1>
-                </header>
-                <div class="flex flex-col space-y-12">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-slate-50 p-8 border border-slate-100 text-center group cursor-default transition-all hover:bg-white hover:shadow-lg">
-                            <p class="text-4xl font-black tracking-tighter text-slate-900 transition-colors group-hover:text-blue-600">23.5%</p>
-                            <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Digital GDP</p>
-                        </div>
-                        <div class="bg-slate-50 p-8 border border-slate-100 text-center group cursor-default transition-all hover:bg-white hover:shadow-lg">
-                            <p class="text-4xl font-black tracking-tighter text-slate-900 transition-colors group-hover:text-red-500">11.1%</p>
-                            <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Youth Unemployment</p>
-                        </div>
-                        <div class="bg-slate-50 p-8 border border-slate-100 text-center group cursor-default transition-all hover:bg-white hover:shadow-lg">
-                            <p class="text-4xl font-black tracking-tighter text-slate-900 transition-colors group-hover:text-blue-800">1.86M</p>
-                            <p class="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mt-2">Brain Drain</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="space-y-6">
-                            <p class="text-xl text-slate-600 leading-relaxed font-light">
-                                Malaysia is transitioning into a <span class="font-normal text-slate-900">digital, innovation-driven economy</span>. However, a dangerous mismatch exists: employers cannot find talent in AI and Data, while youth unemployment remains a systemic risk.
-                            </p>
-                            <div class="bg-blue-600 text-white p-8 inline-block shadow-xl">
-                                <p class="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">Our Response</p>
-                                <p class="text-xl font-light italic leading-snug">Developing a future-ready generation aligned with national economic priorities.</p>
-                            </div>
-                        </div>
-                        <div class="hidden md:block">
-                            <img src="https://images.unsplash.com/photo-1551288049-bbda48658a7d?auto=format&fit=crop&q=80&w=800" alt="Data Chart" class="w-full h-auto rounded-sm shadow-md grayscale hover:grayscale-0 transition-all duration-700">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 5: Problem 1 -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Challenge 01</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Education vs. Application</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 h-full items-center">
-                    <div class="space-y-8">
-                        <h3 class="text-3xl font-light text-slate-900 leading-tight">The "Exam-Oriented" System Failure</h3>
-                        <p class="text-slate-500 leading-relaxed font-light">Malaysia's current system is designed for compliance, not high-stakes creation. Students excel at exams but struggle with execution.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white hover:bg-slate-50 transition-colors"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Market Validation</span></div>
-                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white hover:bg-slate-50 transition-colors"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Strategic Execution</span></div>
-                            <div class="flex items-center gap-4 py-3 px-6 border border-slate-100 bg-white hover:bg-slate-50 transition-colors"><div class="w-1.5 h-1.5 bg-red-400"></div><span class="text-sm font-medium">Business Articulation</span></div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-900 p-12 text-white space-y-6 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-10">
-                        <div class="relative z-10">
-                            <p class="text-[10px] font-bold tracking-widest text-blue-400 uppercase">Core Insight</p>
-                            <p class="text-2xl font-light italic leading-relaxed">"Graduates know how to study, but <span class="text-blue-400 font-normal">they don't know how to build.</span>"</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 6: Skills Gap -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Challenge 02</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">The Human Capital Deficit</h1>
-                </header>
-                <div class="flex flex-col justify-center space-y-12">
-                    <div class="flex flex-col md:flex-row items-stretch gap-8">
-                        <div class="w-full md:w-1/2 bg-blue-600 p-10 flex flex-col justify-end text-white relative group overflow-hidden h-72 shadow-lg">
-                            <div class="absolute top-0 right-0 p-8 opacity-20 transform translate-x-4 -translate-y-4 transition-transform group-hover:translate-x-0 group-hover:translate-y-0">
-                                <i data-lucide="bar-chart-3" class="w-24 h-24"></i>
-                            </div>
-                            <div class="relative z-10">
-                                <p class="text-6xl font-black">65%</p>
-                                <p class="text-sm font-medium opacity-80 max-w-xs mt-2">Workers lack advanced digital capabilities despite high priority.</p>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-1/2 flex flex-col justify-center space-y-6 bg-slate-50 p-10 border border-slate-100">
-                            <p class="text-2xl font-light text-slate-800 italic leading-relaxed">"Employers struggle to fill roles in AI, Cloud, and Data."</p>
-                            <div class="h-0.5 w-16 bg-blue-600"></div>
-                            <p class="text-slate-400 text-sm italic">— Industry Insight Report</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="space-y-4">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-600 flex items-center gap-2">
-                                <i data-lucide="message-square" class="w-4 h-4"></i>
-                                Communication Barrier
-                            </h4>
-                            <p class="text-slate-600 font-light leading-relaxed">81.5% of industries cite communication as the #1 priority, yet it remains the biggest deficit in local graduates.</p>
-                        </div>
-                        <div class="space-y-4">
-                            <h4 class="text-sm font-bold uppercase tracking-widest text-blue-600 flex items-center gap-2">
-                                <i data-lucide="code" class="w-4 h-4"></i>
-                                Digital Execution
-                            </h4>
-                            <p class="text-slate-600 font-light leading-relaxed">Theoretical knowledge is high; practical, hands-on implementation is critically low.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 7: STEM Interactive -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Challenge 03</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Innovation Pipeline Crisis</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 h-full items-center">
-                    <div class="bg-white p-12 border border-slate-100 space-y-12 shadow-sm">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-end">
-                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">National Target</p>
-                                <span class="text-3xl font-light">60%</span>
-                            </div>
-                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-slate-300 chart-transition" style="width: 60%"></div>
-                            </div>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-end">
-                                <p class="text-xs font-bold text-red-500 uppercase tracking-widest">Actual Participation</p>
-                                <span class="text-3xl font-black text-red-500 animate-pulse">15.2%</span>
-                            </div>
-                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
-                                <div class="h-full bg-red-500 chart-transition" style="width: 15.2%"></div>
-                            </div>
-                        </div>
-                        <div class="pt-6 border-t border-slate-50 flex items-center gap-3 text-xs text-slate-400 italic">
-                            <i data-lucide="info" class="w-4 h-4"></i>
-                            The mismatch represents a critical threat to the innovation pipeline.
-                        </div>
-                    </div>
-                    <div class="space-y-8">
-                        <h3 class="text-3xl font-light text-slate-900 leading-tight">Students don't reject STEM; they reject <span class="font-normal italic">disconnected</span> STEM.</h3>
-                        <p class="text-slate-500 text-lg font-light leading-relaxed">The lack of inspiration and hands-on experience has created a massive commitment gap in the pure science streams.</p>
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" class="w-full h-48 object-cover rounded-sm grayscale">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 8: Entrepreneurship -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Challenge 04</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Entrepreneurial Latency</h1>
-                </header>
-                <div class="flex flex-col space-y-12 h-full justify-center">
-                    <div class="flex flex-col md:flex-row gap-12">
-                        <div class="flex-1 p-10 bg-slate-900 text-white rounded-sm relative overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-10">
-                            <div class="relative z-10">
-                                <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">The Latency Issue</p>
-                                <p class="text-2xl font-light leading-relaxed italic">"Youth are not activated early enough. Exposure to the economy starts too late in the educational journey."</p>
-                            </div>
-                        </div>
-                        <div class="flex-1 flex flex-col justify-center space-y-6">
-                            <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Activation Gap.</h3>
-                            <p class="text-slate-500 font-light leading-relaxed text-lg">Potential is high, but the "Employee Mindset" is ingrained too early, suppressing natural innovative instincts and bold execution.</p>
-                        </div>
-                    </div>
-                    <div class="h-px bg-slate-100 w-full"></div>
-                    <div class="text-center italic text-slate-400 text-xl font-light">"Malaysia is producing educated youth, but not enough <span class="text-blue-600 font-normal">capable builders.</span>"</div>
-                </div>
-            </section>
-
-            <!-- Page 9: The Edge -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto bg-slate-900 text-white relative">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6 relative z-10">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Strategic Edge</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-white">The Strategic Differentiator</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-1 h-full py-12 relative z-10">
-                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-blue-600 transition-all duration-500 group">
-                        <div class="opacity-40 group-hover:opacity-100"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Job Creation</p></div>
-                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1 group-hover:text-white">Intervention</p><p class="text-2xl font-bold italic">NSE (Entrepreneurship)</p></div>
-                    </div>
-                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-blue-800 transition-all duration-500 group">
-                        <div class="opacity-40 group-hover:opacity-100"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Career Direction</p></div>
-                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1 group-hover:text-white">Intervention</p><p class="text-2xl font-bold italic">CFL (STEM Exposure)</p></div>
-                    </div>
-                    <div class="p-10 border border-slate-800 flex flex-col justify-between hover:bg-blue-950 transition-all duration-500 group">
-                        <div class="opacity-40 group-hover:opacity-100"><p class="text-[10px] font-bold uppercase mb-1">System Failure</p><p class="text-lg font-light">No Real Skills</p></div>
-                        <div class="mt-20"><p class="text-[10px] font-bold uppercase text-blue-400 mb-1 group-hover:text-white">Intervention</p><p class="text-2xl font-bold italic">Academy (Skills Training)</p></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 10: Pillars -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Solution Model</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">The 3 Pillar Framework</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100 h-full shadow-sm">
-                    <div class="p-12 border-r border-slate-100 flex flex-col justify-between hover:bg-slate-50 transition-all group">
-                        <div class="w-12 h-12 flex items-center justify-center text-blue-600 mb-8 group-hover:scale-110 transition-transform"><i data-lucide="briefcase"></i></div>
-                        <div><p class="text-[10px] font-black uppercase text-blue-600 mb-2">Builders of Opportunity</p><h3 class="text-2xl font-light text-slate-800 mb-6">Entrepreneurship</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white p-3 border border-slate-100 inline-block">NSE Program</p></div>
-                    </div>
-                    <div class="p-12 border-r border-slate-100 flex flex-col justify-between hover:bg-slate-50 transition-all group">
-                        <div class="w-12 h-12 flex items-center justify-center text-blue-800 mb-8 group-hover:scale-110 transition-transform"><i data-lucide="cpu"></i></div>
-                        <div><p class="text-[10px] font-black uppercase text-blue-800 mb-2">Builders of Passion</p><h3 class="text-2xl font-light text-slate-800 mb-6">STEM</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white p-3 border border-slate-100 inline-block">CFL Program</p></div>
-                    </div>
-                    <div class="p-12 flex flex-col justify-between hover:bg-slate-50 transition-all group">
-                        <div class="w-12 h-12 flex items-center justify-center text-blue-400 mb-8 group-hover:scale-110 transition-transform"><i data-lucide="layers"></i></div>
-                        <div><p class="text-[10px] font-black uppercase text-blue-400 mb-2">Builders of Capability</p><h3 class="text-2xl font-light text-slate-800 mb-6">Skills</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white p-3 border border-slate-100 inline-block">SBA Program</p></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 11: Pillar 1 NSE -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Niaga School Enterprise</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Builders of Opportunity</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-20 h-full items-center">
-                    <div class="space-y-12">
-                        <h3 class="text-4xl font-light tracking-tight">Early Business <br/>Activation.</h3>
-                        <p class="text-slate-500 text-lg leading-relaxed font-light">We incubate entrepreneurs at the high-school level, building confidence and creativity early.</p>
-                        <div class="flex gap-12">
-                            <div class="p-4 bg-white border border-slate-100 shadow-sm"><p class="text-3xl font-black text-slate-900">78%</p><p class="text-[10px] font-bold text-slate-400 uppercase mt-1">Interest Lift</p></div>
-                            <div class="p-4 bg-white border border-slate-100 shadow-sm"><p class="text-3xl font-black text-slate-900">PILOT</p><p class="text-[10px] font-bold text-slate-400 uppercase mt-1">Ready 2026</p></div>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1000" alt="Entrepreneur" class="w-full h-80 object-cover shadow-2xl rounded-sm">
-                        <div class="absolute -bottom-8 -left-8 bg-white p-8 space-y-4 shadow-xl border border-slate-100 max-w-xs">
-                            <p class="text-sm italic text-slate-600 leading-relaxed">"Entrepreneurship must start before university to be truly effective."</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 12: Pillar 2 CFL -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Cipta Future Lab</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Builders of Passion</h1>
-                </header>
-                <div class="bg-slate-900 text-white p-16 flex flex-col md:flex-row justify-between items-center gap-12 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-10">
-                    <div class="space-y-6 max-w-xl relative z-10">
-                        <h3 class="text-4xl font-light">Transforming the STEM Narrative.</h3>
-                        <p class="text-slate-400 text-lg font-light leading-relaxed">CFL connects innovation with real-world problems. We don't just study science—we build solutions with purpose.</p>
-                    </div>
-                    <div class="flex-shrink-0 bg-blue-600 w-32 h-32 flex items-center justify-center text-white font-black text-2xl relative z-10 shadow-2xl">CFL</div>
-                </div>
-            </section>
-
-            <!-- Page 13: Pillar 3 Skill Academy -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Skill Academy</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Builders of Capability</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 h-full items-center">
-                    <div class="space-y-10">
-                        <h3 class="text-3xl font-light tracking-tighter">Human Skills + <br/>Digital Mastery.</h3>
-                        <p class="text-slate-500 font-light leading-relaxed">Bridging the gap by focusing on digital mastery (AI/Data) and professional communication for the future economy.</p>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div class="flex items-center gap-4 py-4 px-8 bg-slate-50 border-l-4 border-blue-600 text-sm font-bold shadow-sm transition-all hover:bg-blue-600 hover:text-white group">
-                                <i data-lucide="zap" class="w-4 h-4 text-blue-600 group-hover:text-white"></i>
-                                AI Execution & Prompt Engineering
-                            </div>
-                            <div class="flex items-center gap-4 py-4 px-8 bg-slate-50 border-l-4 border-blue-800 text-sm font-bold shadow-sm transition-all hover:bg-blue-800 hover:text-white group">
-                                <i data-lucide="users" class="w-4 h-4 text-blue-800 group-hover:text-white"></i>
-                                Professional Persuasion & Communication
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-900 text-white p-12 text-center italic font-light relative group">
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale group-hover:grayscale-0 transition-all duration-700">
-                        <div class="relative z-10">
-                            "We don't just provide knowledge. <br>We provide <span class="text-blue-400 font-bold">execution excellence</span>."
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 14: Roadmap -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto overflow-y-auto no-scrollbar">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Implementation Phasing</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Execution Roadmap</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100 shadow-xl rounded-sm overflow-hidden">
-                    <div class="p-12 bg-slate-50 flex flex-col justify-between h-80 border-r border-slate-100 hover:bg-white transition-colors cursor-default group">
-                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-50 group-hover:text-blue-600">3-6 Months</p><h4 class="text-2xl font-light mt-1">Phase 01: Pilot</h4></div>
-                        <p class="text-sm font-light opacity-70 leading-relaxed">Launch NSE Core with 2-3 Pilot Schools. Focus on immediate feedback loops.</p>
-                    </div>
-                    <div class="p-12 bg-blue-50 flex flex-col justify-between h-80 border-r border-slate-100 hover:bg-white transition-colors cursor-default group">
-                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-50 group-hover:text-blue-800">6-12 Months</p><h4 class="text-2xl font-light text-blue-900 mt-1">Phase 02: Expansion</h4></div>
-                        <p class="text-sm font-light opacity-70 leading-relaxed">Add Cipta Future Lab and secure CSR Partners for regional reach.</p>
-                    </div>
-                    <div class="p-12 bg-slate-900 text-white flex flex-col justify-between h-80 hover:bg-blue-950 transition-colors cursor-default group">
-                        <div><p class="text-[10px] font-black tracking-widest uppercase opacity-40 group-hover:text-blue-400">1-3 Years</p><h4 class="text-2xl font-light mt-1">Phase 03: Scale</h4></div>
-                        <p class="text-sm font-light opacity-60 leading-relaxed">Nationwide expansion and digital alumni network for sustainable impact.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 15: Org Chart (Requested Hierarchy) -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto items-center justify-center">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6 self-start">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Management Structure</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Leadership Hierarchy</h1>
-                </header>
-                
-                <!-- 3 Founders Tier -->
-                <div class="w-full flex justify-center mb-16">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
-                        <div class="p-8 border border-slate-100 bg-white text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <p class="text-[10px] font-black text-blue-600 uppercase mb-1 italic">Founder</p>
-                            <h3 class="text-xl font-light text-slate-900">Nazmi Mohamed</h3>
-                            <p class="text-[10px] font-bold text-slate-400 uppercase mt-4">Managing Director</p>
-                        </div>
-                        <div class="p-8 border border-slate-100 bg-white text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <p class="text-[10px] font-black text-blue-600 uppercase mb-1 italic">Co-Founder</p>
-                            <h3 class="text-xl font-light text-slate-900">Arham Munir</h3>
-                            <p class="text-[10px] font-bold text-slate-400 uppercase mt-4">CEO</p>
-                        </div>
-                        <div class="p-8 border border-slate-100 bg-white text-center hover:shadow-xl hover:-translate-y-1 transition-all">
-                            <p class="text-[10px] font-black text-blue-600 uppercase mb-1 italic">Co-Founder</p>
-                            <h3 class="text-xl font-light text-slate-900">Shahmie</h3>
-                            <p class="text-[10px] font-bold text-slate-400 uppercase mt-4">CPO</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4 Leads Tier -->
-                <div class="w-full flex justify-center">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-6xl">
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
-                            <p class="text-[10px] font-black text-slate-400 uppercase mb-1">NSE Lead</p>
-                            <p class="text-xs font-medium text-slate-600 italic">Entrepreneurship</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
-                            <p class="text-[10px] font-black text-slate-400 uppercase mb-1">CFL Lead</p>
-                            <p class="text-xs font-medium text-slate-600 italic">STEM Pipeline</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
-                            <p class="text-[10px] font-black text-slate-400 uppercase mb-1">SBA Lead</p>
-                            <p class="text-xs font-medium text-slate-600 italic">Skill Academy</p>
-                        </div>
-                        <div class="p-6 bg-slate-50 border border-slate-100 text-center hover:bg-white transition-colors">
-                            <p class="text-[10px] font-black text-slate-400 uppercase mb-1">Growth Lead</p>
-                            <p class="text-xs font-medium text-slate-600 italic">Partnerships</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 16: Funding Interactive -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto">
-                <header class="mb-12 border-l-2 border-blue-600 pl-6">
-                    <h2 class="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase mb-2">Funding Model</h2>
-                    <h1 class="text-4xl font-light tracking-tight text-slate-900">Resource Allocation</h1>
-                </header>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-                    <div class="space-y-12">
-                        <h3 class="text-4xl font-light tracking-tighter">The 70/30 <br/><span class="text-blue-600 italic font-normal">Architecture.</span></h3>
-                        <p class="text-slate-500 font-light leading-relaxed">High-impact delivery ensures maximum value for stakeholders: 70% direct program capital, 30% operational management.</p>
-                        <div class="space-y-8">
-                            <div class="group cursor-pointer">
-                                <div class="flex justify-between text-[11px] font-black uppercase mb-3 transition-colors group-hover:text-blue-600">
-                                    <span class="flex items-center gap-2"><i data-lucide="target" class="w-3 h-3"></i> Direct Program Cost</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                                    <div class="h-full bg-blue-600 chart-transition group-hover:bg-blue-500" style="width: 70%"></div>
-                                </div>
-                                <p class="text-[10px] text-slate-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Materials, workshops, student facilitators, and field activities.</p>
-                            </div>
-                            <div class="group cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
-                                <div class="flex justify-between text-[11px] font-black uppercase mb-3 transition-colors group-hover:text-slate-900">
-                                    <span class="flex items-center gap-2"><i data-lucide="settings" class="w-3 h-3"></i> Operations & Management</span>
-                                    <span>30%</span>
-                                </div>
-                                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                                    <div class="h-full bg-slate-400 chart-transition group-hover:bg-slate-500" style="width: 30%"></div>
-                                </div>
-                                <p class="text-[10px] text-slate-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Administrative overhead, governance, and long-term strategy maintenance.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 p-12 border border-slate-100 grid grid-cols-2 gap-4 shadow-inner relative">
-                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
-                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">CSR</p>
-                            <i data-lucide="building-2" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
-                        </div>
-                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
-                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Grants</p>
-                            <i data-lucide="landmark" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
-                        </div>
-                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
-                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Donations</p>
-                            <i data-lucide="heart" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
-                        </div>
-                        <div class="p-6 bg-white text-center transition-all hover:shadow-md hover:-translate-y-1 group">
-                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">Partners</p>
-                            <i data-lucide="handshake" class="w-4 h-4 mx-auto mt-4 text-slate-200 group-hover:text-blue-100"></i>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Page 17: Conclusion -->
-            <section class="page flex-col h-full w-full p-10 md:p-20 max-w-7xl mx-auto bg-slate-900 text-white items-center justify-center text-center relative overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale">
-                <div class="max-w-3xl space-y-12 relative z-10">
-                    <div class="inline-block p-4 bg-blue-600 text-white rounded-sm mb-4 shadow-2xl">
-                        <i data-lucide="rocket" class="w-8 h-8"></i>
-                    </div>
-                    <h2 class="text-5xl font-extralight tracking-tight leading-tight">Ready to <span class="text-blue-400 italic">activate</span> the next generation?</h2>
-                    <div class="h-px w-24 bg-blue-500 mx-auto opacity-30"></div>
-                    <p class="text-slate-400 text-xl font-light italic leading-relaxed">"Persatuan Pembina Muda Negara ensures youth build the future economy through opportunity, passion, and capability."</p>
-                </div>
-                <div class="flex gap-12 pt-20 relative z-10">
-                    <div class="text-center group border-b border-slate-700 pb-2 cursor-pointer hover:border-blue-400 transition-colors">
-                        <p class="text-lg font-light group-hover:text-blue-400">Partnerships</p>
-                    </div>
-                    <div class="text-center group border-b border-slate-700 pb-2 cursor-pointer hover:border-blue-400 transition-colors">
-                        <p class="text-lg font-light group-hover:text-blue-400">Funding</p>
-                    </div>
-                </div>
-                <div class="pt-20 opacity-30 text-xs font-bold tracking-[0.5em] uppercase relative z-10">Building Malaysia's Future Builders</div>
-            </section>
-
-        </main>
-
-        <!-- Navigation Footer -->
-        <footer class="p-6 border-t border-slate-100 bg-white flex justify-between items-center px-12 z-50">
-            <div class="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase opacity-40">
-                <span>PPMN Society</span>
-                <span class="w-8 h-px bg-slate-900"></span>
-                <span>2026 Strategy</span>
+                <a href="https://www.moe.gov.my/en/special-report-education-malaysia" target="_blank" class="source-link">
+                    Source: Ministry of Education National Blueprint
+                </a>
             </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Skills Mismatch + Demand Graph -->
+    <section id="slide-5" class="slide bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h3 class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-6">Market Reality</h3>
+            <h2 class="text-5xl font-extrabold mb-12">The <span class="text-blue-600 italic">Skills</span> Mismatch</h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="chart-container h-64 w-full">
+                    <canvas id="skillsChart"></canvas>
+                    <p class="text-[10px] text-center text-slate-400 mt-4 font-bold">Employers' Prioritized Skills (Importance vs Availability)</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="p-6 border-l-4 border-emerald-500 bg-emerald-50 rounded-r-2xl">
+                        <h4 class="font-bold text-emerald-900">Communication is King</h4>
+                        <p class="text-sm text-emerald-800">81.5% of employers rank soft skills as the most critical hiring factor.</p>
+                    </div>
+                    <div class="p-6 border-l-4 border-blue-500 bg-blue-50 rounded-r-2xl">
+                        <h4 class="font-bold text-blue-900">Digital Talent Drought</h4>
+                        <p class="text-sm text-blue-800">Cloud, AI, and Data roles remain the hardest to fill in the Malaysian private sector.</p>
+                    </div>
+                    <a href="https://mdec.my/digital-talent/" target="_blank" class="source-link">
+                        Source: MDEC Digital Talent Survey
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: STEM Reality + Gauge Chart -->
+    <section id="slide-6" class="slide bg-slate-50/50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-sm font-bold text-purple-600 uppercase tracking-widest mb-6">STEM Pipeline</h3>
+            <h2 class="text-5xl font-extrabold mb-12">Interest <span class="text-purple-600 italic">Deficit</span></h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="w-64 h-64 relative">
+                    <canvas id="stemGauge"></canvas>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pt-8">
+                        <span class="text-4xl font-black text-slate-800">15.2%</span>
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Actual Pure Science</span>
+                    </div>
+                </div>
+                <div class="text-left max-w-sm space-y-4">
+                    <div class="p-4 bg-white rounded-xl border border-slate-200">
+                        <p class="text-xs font-bold text-slate-400 mb-1">NATIONAL TARGET</p>
+                        <p class="text-xl font-bold text-purple-600">60% Student Enrollment</p>
+                    </div>
+                    <p class="text-sm text-slate-500 italic">"Students don't reject STEM - they reject the boring methods of instruction. PPMN's CFL Lab restores the magic of discovery."</p>
+                    <a href="https://www.akademisains.gov.my/" target="_blank" class="source-link">
+                        Source: Academy of Sciences Malaysia (ASM)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Youth Entrepreneurship -->
+    <section id="slide-7" class="slide bg-white">
+        <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h3 class="text-sm font-bold text-emerald-600 uppercase tracking-widest mb-6">Opportunity</h3>
+                <h2 class="text-5xl font-extrabold mb-8">Early <span class="text-emerald-600 underline">Activation</span></h2>
+                <p class="text-slate-500 text-lg leading-relaxed mb-8 font-light italic">
+                    Malaysia has immense entrepreneurial potential, but the current systems activate it too late in life. We need "Builders" not just "Workers."
+                </p>
+                <div class="flex gap-4">
+                    <div class="p-4 bg-emerald-50 rounded-2xl text-center flex-1">
+                        <p class="text-2xl font-black text-emerald-600">NSE</p>
+                        <p class="text-[10px] font-bold text-emerald-800 uppercase">School Enterprise</p>
+                    </div>
+                    <div class="p-4 bg-emerald-50 rounded-2xl text-center flex-1">
+                        <p class="text-2xl font-black text-emerald-600">SBA</p>
+                        <p class="text-[10px] font-bold text-emerald-800 uppercase">Skill Academy</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-12 glass-card rounded-[3rem] border-2 border-emerald-100 flex flex-col justify-center">
+                <svg class="text-emerald-500 mb-6" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 11V5a2 2 0 00-2-2 2 2 0 00-2 2v1c0 1.1-.9 2-2 2h-1a2 2 0 00-2 2v3m14 6h-4M17 16h.01M17 12h.01M21 16h.01M21 12h.01M17 8h.01M21 8h.01M3 21l1.9-5.7a8.5 8.5 0 1115.4 0L21 21H3z"/></svg>
+                <h4 class="text-2xl font-bold mb-4">The Solution Gap</h4>
+                <p class="text-slate-600 text-sm italic">"Entrepreneurship isn't about opening a shop; it's a mindset of taking responsibility for the economy."</p>
+                <a href="https://www.smecorp.gov.my/" target="_blank" class="source-link">
+                    Source: SME Corp Malaysia Youth Trends
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Strategic Risk + Brain Drain Graph -->
+    <section id="slide-8" class="slide bg-slate-900 text-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <h2 class="text-5xl font-extrabold mb-16 tracking-tight">The <span class="text-red-500">Risk</span> of Inaction</h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-10">
+                    <div class="flex items-start gap-6">
+                        <div class="text-4xl font-black text-red-500">1.86M</div>
+                        <div>
+                            <p class="font-bold text-xl">Brain Drain Crisis</p>
+                            <p class="text-slate-400 text-sm">Malaysians currently abroad. We are exporting our best "Builders."</p>
+                            <a href="https://data.worldbank.org/indicator/SM.POP.NETM?locations=MY" target="_blank" class="source-link text-slate-500">
+                                Source: World Bank Migration Data
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <p class="text-lg italic font-light">"If nothing changes, we remain a nation of consumers rather than creators."</p>
+                    </div>
+                </div>
+                <div class="chart-container h-64 bg-slate-800 rounded-3xl p-6">
+                    <canvas id="riskChart"></canvas>
+                    <p class="text-[10px] text-center text-slate-500 mt-4">Estimated Human Capital Loss vs Local Utilization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Solution Overview -->
+    <section id="slide-9" class="slide bg-white">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-5xl font-extrabold mb-24">The <span class="text-blue-600">Multi-System</span> Approach</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 group hover:border-blue-300 transition">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">NSE</h4>
+                    <p class="text-xs text-slate-500 italic">Niaga School Enterprise</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 group hover:border-purple-300 transition">
+                    <div class="w-12 h-12 bg-purple-600 text-white rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m12.72-12.72l-1.41 1.41M12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">CFL</h4>
+                    <p class="text-xs text-slate-500 italic">Cipta Future Lab</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 group hover:border-emerald-300 transition">
+                    <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">SBA</h4>
+                    <p class="text-xs text-slate-500 italic">Skill Academy</p>
+                </div>
+            </div>
+            <p class="mt-16 text-slate-400 italic font-medium uppercase text-xs tracking-widest">Bridging the Gap for 2026/2027</p>
+        </div>
+    </section>
+
+    <!-- Slide 10: NSE Detail -->
+    <section id="slide-10" class="slide bg-slate-50/50">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row gap-16 items-center">
+            <div class="flex-1">
+                <span class="text-blue-600 font-bold uppercase text-xs tracking-widest mb-4 inline-block">Niaga School Enterprise</span>
+                <h2 class="text-5xl font-extrabold mb-8">Builders of <br/><span class="text-blue-600 italic">Opportunity</span></h2>
+                <p class="text-lg text-slate-500 font-light leading-relaxed mb-8">
+                    NSE is not a class; it's a incubator within schools. We provide the seed funding and mentorship for students to launch micro-enterprises.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                        <h5 class="font-bold text-slate-800 text-sm">Job Creation</h5>
+                        <p class="text-[10px] text-slate-500 mt-1 italic">Students creating employment for peers.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                        <h5 class="font-bold text-slate-800 text-sm">Execution</h5>
+                        <p class="text-[10px] text-slate-500 mt-1 italic">Moving from "Idea" to "Invoice."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 w-full bg-blue-600 p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+                <h4 class="text-2xl font-bold text-white mb-6">NSE Impact Goal</h4>
+                <p class="text-blue-100 font-light italic text-lg leading-relaxed">
+                    "Activating the economic engine at the high school level ensures a graduate is not just a job seeker, but a job builder."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: CFL Detail -->
+    <section id="slide-11" class="slide bg-white">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row gap-16 items-center">
+            <div class="flex-1 w-full bg-slate-900 p-12 rounded-[3.5rem] shadow-2xl order-2 md:order-1 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/10 rounded-full"></div>
+                <h4 class="text-2xl font-bold text-white mb-6">Innovation Pulse</h4>
+                <p class="text-slate-400 font-light italic text-lg leading-relaxed">
+                    "By connecting STEM to local community problems, science becomes a tool for social good rather than an abstract exam subject."
+                </p>
+            </div>
+            <div class="flex-1 order-1 md:order-2">
+                <span class="text-purple-600 font-bold uppercase text-xs tracking-widest mb-4 inline-block">Cipta Future Lab</span>
+                <h2 class="text-5xl font-extrabold mb-8">Builders of <br/><span class="text-purple-600 italic">Passion</span></h2>
+                <p class="text-lg text-slate-500 font-light leading-relaxed mb-8">
+                    CFL Labs are equipped with the tools of the 4th Industrial Revolution (3D Printing, IoT, Robotics) to ignite the innovation pipeline.
+                </p>
+                <div class="flex items-center gap-4 p-4 bg-purple-50 rounded-xl border border-purple-100 italic text-purple-900 text-sm">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    "Students commit to what they can build, not what they must memorize."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: Skill Academy Detail -->
+    <section id="slide-12" class="slide bg-slate-50/50">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-emerald-600 font-bold uppercase text-xs tracking-widest mb-4 inline-block">Skill Academy</span>
+                <h2 class="text-5xl font-extrabold mb-4">Builders of <span class="text-emerald-600 italic">Capability</span></h2>
+                <p class="text-slate-500 italic">High-performance workforce training for the modern economy.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-xl">Digital Fluency</h4>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Training in AI orchestration, cloud workflows, and data-driven decision making—the essential digital "Human-Skills" mix.</p>
+                </div>
+                <div class="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-xl">Leadership & Sales</h4>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">No innovation matters if you cannot communicate it. We train the art of the pitch, negotiation, and high-performance collaboration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 13: Systemic Advantage -->
+    <section id="slide-13" class="slide bg-white">
+        <div class="max-w-5xl mx-auto px-4 w-full">
+            <h2 class="text-4xl font-extrabold mb-12 border-l-4 border-blue-600 pl-6">The Systemic <span class="text-blue-600">Edge</span></h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse border border-slate-100 rounded-3xl overflow-hidden">
+                    <thead class="bg-slate-900 text-white">
+                        <tr>
+                            <th class="p-6">National Failure</th>
+                            <th class="p-6">PPMN Intervention</th>
+                            <th class="p-6">Economic Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr>
+                            <td class="p-6 text-sm text-slate-500 italic">No job creation</td>
+                            <td class="p-6 font-bold text-blue-600">NSE (Entrepreneurship)</td>
+                            <td class="p-6 text-sm font-bold">New SME Pipeline</td>
+                        </tr>
+                        <tr>
+                            <td class="p-6 text-sm text-slate-500 italic">Low STEM commits</td>
+                            <td class="p-6 font-bold text-purple-600">CFL (Innovation Labs)</td>
+                            <td class="p-6 text-sm font-bold">Tech-Ready Workforce</td>
+                        </tr>
+                        <tr>
+                            <td class="p-6 text-sm text-slate-500 italic">Skills Mismatch</td>
+                            <td class="p-6 font-bold text-emerald-600">SBA (Soft/Digital Skills)</td>
+                            <td class="p-6 text-sm font-bold">Industry Readiness</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-12 text-center text-slate-400 font-bold italic uppercase text-xs tracking-widest">A generation of Builders solving Malaysia's core structural gaps.</p>
+        </div>
+    </section>
+
+    <!-- Slide 14: Position Statement -->
+    <section id="slide-14" class="slide bg-blue-600 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h3 class="text-xs font-bold uppercase tracking-[0.4em] mb-12 text-blue-200">The Edge Positioning</h3>
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-12 italic leading-tight">A National Talent <br/>Development Engine.</h2>
+            <p class="text-xl md:text-2xl text-blue-100 font-light max-w-2xl mx-auto leading-relaxed">
+                PPMN is not an education program; it is a movement that builds a generation of Young Builders.
+            </p>
+            <div class="mt-16 inline-block p-6 bg-white/10 rounded-3xl border border-white/20">
+                <p class="text-sm font-bold">"We don't just educate students. We build future builders."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 15: Org Structure -->
+    <section id="slide-15" class="slide bg-white">
+        <div class="max-w-6xl mx-auto px-4 w-full">
+            <h2 class="text-center text-4xl font-extrabold mb-24 uppercase tracking-[0.2em] text-slate-400">Leadership Engine</h2>
             
-            <div class="flex items-center gap-6">
-                <button id="prevBtn" class="p-2 rounded-full hover:bg-slate-100 text-slate-400 transition-all opacity-10 cursor-not-allowed">
-                    <i data-lucide="chevron-left"></i>
-                </button>
-                
-                <div class="text-[11px] font-black tracking-tighter tabular-nums">
-                    <span id="page-indicator" class="text-blue-600">01</span>
-                    <span class="mx-2 opacity-20">/</span>
-                    <span class="opacity-40">17</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 relative">
+                <div class="text-center p-10 glass-card rounded-3xl border-b-4 border-blue-600 group hover:shadow-2xl transition-all duration-500">
+                    <p class="font-bold text-xl mb-1 text-slate-800">Nazmi Mohamed</p>
+                    <p class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Managing Director • Founder</p>
                 </div>
-                
-                <button id="nextBtn" class="p-2 rounded-full hover:bg-slate-100 text-blue-600 transition-all">
-                    <i data-lucide="chevron-right"></i>
-                </button>
+                <div class="text-center p-10 glass-card rounded-3xl border-b-4 border-blue-600 group hover:shadow-2xl transition-all duration-500">
+                    <p class="font-bold text-xl mb-1 text-slate-800">Arham Munir</p>
+                    <p class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">CEO • Co-Founder</p>
+                </div>
+                <div class="text-center p-10 glass-card rounded-3xl border-b-4 border-blue-600 group hover:shadow-2xl transition-all duration-500">
+                    <p class="font-bold text-xl mb-1 text-slate-800">Shahmie</p>
+                    <p class="text-blue-600 font-bold text-[10px] uppercase tracking-widest">CPO • Co-Founder</p>
+                </div>
             </div>
-        </footer>
 
-    </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-blue-300 transition">
+                    <p class="font-bold text-slate-800 text-xs mb-1">NSE Lead</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-tighter italic">Opportunity</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-purple-300 transition">
+                    <p class="font-bold text-slate-800 text-xs mb-1">CFL Lead</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-tighter italic">Passion</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-emerald-300 transition">
+                    <p class="font-bold text-slate-800 text-xs mb-1">Skill Lead</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-tighter italic">Capability</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-2xl text-center border border-slate-100 hover:border-blue-300 transition">
+                    <p class="font-bold text-slate-800 text-xs mb-1">Partnerships</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-tighter italic">Ecosystem</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 16: Funding & Roadmap + Pie Chart -->
+    <section id="slide-16" class="slide bg-slate-50/50">
+        <div class="max-w-6xl mx-auto px-4 w-full">
+            <h2 class="text-4xl font-extrabold mb-16 italic tracking-tight text-center">Efficiency & <span class="text-blue-600">Growth</span></h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">70/30 Sustainable Model</h4>
+                        <div class="w-64 h-64 mx-auto relative">
+                            <canvas id="fundingPie"></canvas>
+                            <div class="absolute inset-0 flex items-center justify-center pt-2">
+                                <span class="text-2xl font-black text-slate-400">70/30</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 grid grid-cols-2 gap-4 text-[10px] font-bold uppercase tracking-widest text-center">
+                            <div class="p-2 border-l-4 border-blue-600">Program Implementation</div>
+                            <div class="p-2 border-l-4 border-slate-400">Operational Management</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Execution Roadmap</h4>
+                    <div class="relative pl-8 border-l border-slate-200 space-y-10">
+                        <div class="relative">
+                            <div class="absolute -left-[37px] w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
+                            <h5 class="font-bold text-slate-800 text-lg">Phase 1: Pilot (3-6M)</h5>
+                            <p class="text-sm text-slate-500">2-3 Schools • NSE Core Launch • Baseline skills audit.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[37px] w-4 h-4 bg-slate-200 rounded-full border-4 border-white"></div>
+                            <h5 class="font-bold text-slate-800 text-lg">Phase 2: Expansion (6-12M)</h5>
+                            <p class="text-sm text-slate-500">Secure CSR Anchors • Deploy CFL innovation labs.</p>
+                        </div>
+                        <div class="relative opacity-50">
+                            <div class="absolute -left-[37px] w-4 h-4 bg-slate-200 rounded-full border-4 border-white"></div>
+                            <h5 class="font-bold text-slate-800 text-lg">Phase 3: Scale (1-3Y)</h5>
+                            <p class="text-sm text-slate-500">Nationwide footprint • Active alumni builder network.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 17: Closing -->
+    <section id="slide-17" class="slide bg-white relative overflow-hidden">
+        <div class="absolute -bottom-64 -right-64 w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-3xl"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-xs font-bold text-slate-300 mb-12 uppercase tracking-[0.8em]">Final Positioning</h2>
+            <h1 class="text-6xl md:text-9xl font-extrabold mb-12 italic leading-none tracking-tighter">
+                BUILD THE <br/><span class="text-blue-600">FUTURE</span>
+            </h1>
+            <p class="text-2xl text-slate-400 max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                Join PPMN in developing the architects of Malaysia's 2027 economy. Not workers, but Builders.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#slide-1" class="px-12 py-5 bg-slate-900 text-white rounded-3xl font-bold shadow-2xl hover:-translate-y-1 transition duration-300">Restart Session</a>
+                <a href="mailto:arham@ppmn.org" class="px-12 py-5 bg-blue-600 text-white rounded-3xl font-bold shadow-2xl hover:-translate-y-1 transition duration-300 flex items-center gap-3">
+                    Partner With Us
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="mt-24 text-[10px] font-black uppercase tracking-[0.5em] text-slate-200 italic">Persatuan Pembina Muda Negara • Strategic v3.0</div>
+        </div>
+    </section>
+
+    <footer class="p-8 bg-white text-center text-slate-300 text-[10px] font-bold uppercase tracking-widest border-t border-slate-50">
+        © 2026 PERSATUAN PEMBINA MUDA NEGARA • EST. 2026
+    </footer>
 
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
 
-        // State Management
-        let currentPage = 0;
-        const totalPages = 17;
-        const pages = document.querySelectorAll('.page');
-        const progressBar = document.getElementById('progress-bar');
-        const pageIndicator = document.getElementById('page-indicator');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-
-        function updateUI() {
-            // Update Pages
-            pages.forEach((p, index) => {
-                p.classList.remove('active');
-                if(index === currentPage) p.classList.add('active');
+        // Initialize Charts when the page is ready
+        window.onload = function() {
+            // GDP Chart
+            new Chart(document.getElementById('gdpChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024 (e)'],
+                    datasets: [{
+                        label: 'Digital GDP %',
+                        data: [19.1, 20.2, 21.6, 22.8, 23.5],
+                        backgroundColor: '#2563eb',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { display: false }, x: { grid: { display: false } } }
+                }
             });
 
-            // Update Progress Bar
-            const progress = ((currentPage + 1) / totalPages) * 100;
-            progressBar.style.width = progress + '%';
-
-            // Update Indicator
-            pageIndicator.innerText = (currentPage + 1).toString().padStart(2, '0');
-
-            // Button States
-            if(currentPage === 0) {
-                prevBtn.classList.add('opacity-10', 'cursor-not-allowed');
-                prevBtn.classList.remove('text-blue-600');
-            } else {
-                prevBtn.classList.remove('opacity-10', 'cursor-not-allowed');
-                prevBtn.classList.add('text-blue-600');
-            }
-
-            if(currentPage === totalPages - 1) {
-                nextBtn.classList.add('opacity-10', 'cursor-not-allowed');
-                nextBtn.classList.remove('text-blue-600');
-            } else {
-                nextBtn.classList.remove('opacity-10', 'cursor-not-allowed');
-                nextBtn.classList.add('text-blue-600');
-            }
-
-            // Scroll content to top on page change
-            const content = document.getElementById('content');
-            content.scrollTop = 0;
-        }
-
-        nextBtn.addEventListener('click', () => {
-            if(currentPage < totalPages - 1) {
-                currentPage++;
-                updateUI();
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if(currentPage > 0) {
-                currentPage--;
-                updateUI();
-            }
-        });
-
-        // Keyboard Navigation
-        document.addEventListener('keydown', (e) => {
-            if(e.key === 'ArrowRight') {
-                if(currentPage < totalPages - 1) {
-                    currentPage++;
-                    updateUI();
+            // Skills Chart
+            new Chart(document.getElementById('skillsChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Communication', 'Data Analytics', 'AI Prompting', 'Leadership', 'Critical Thinking'],
+                    datasets: [{
+                        label: 'Market Demand',
+                        data: [90, 85, 75, 88, 82],
+                        fill: true,
+                        backgroundColor: 'rgba(5, 150, 105, 0.2)',
+                        borderColor: '#059669',
+                        pointBackgroundColor: '#059669',
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: { r: { angleLines: { display: false }, suggestedMin: 50, suggestedMax: 100, ticks: { display: false } } },
+                    plugins: { legend: { display: false } }
                 }
-            }
-            if(e.key === 'ArrowLeft') {
-                if(currentPage > 0) {
-                    currentPage--;
-                    updateUI();
+            });
+
+            // STEM Gauge Chart (Doughnut)
+            new Chart(document.getElementById('stemGauge'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Actual', 'Gap'],
+                    datasets: [{
+                        data: [15.2, 84.8],
+                        backgroundColor: ['#7c3aed', '#f1f5f9'],
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: { legend: { display: false }, tooltip: { enabled: false } }
                 }
-            }
-        });
+            });
+
+            // Risk Chart
+            new Chart(document.getElementById('riskChart'), {
+                type: 'line',
+                data: {
+                    labels: ['2015', '2018', '2021', '2024'],
+                    datasets: [{
+                        label: 'Brain Drain Index',
+                        data: [1.2, 1.4, 1.7, 1.86],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { x: { grid: { display: false } }, y: { display: false } }
+                }
+            });
+
+            // Funding Pie Chart
+            new Chart(document.getElementById('fundingPie'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Program', 'Management'],
+                    datasets: [{
+                        data: [70, 30],
+                        backgroundColor: ['#2563eb', '#cbd5e1'],
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: { legend: { display: false } }
+                }
+            });
+        };
     </script>
 </body>
 </html>
